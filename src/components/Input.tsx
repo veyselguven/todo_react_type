@@ -6,15 +6,21 @@ type Iprops = {
 };
 
 const Input: React.FC<Iprops> = ({ todo, setTodo, addMessage }) => {
+  const handleSubmit = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    addMessage();
+  };
   return (
     <div>
-      <input
-        value={todo}
-        onChange={(e) => setTodo(e.target.value)}
-        type="text"
-        placeholder="Please Typing...."
-      />
-      <button onClick={addMessage}>Add</button>
+      <form onSubmit={handleSubmit}>
+        <input
+          value={todo}
+          onChange={(e) => setTodo(e.target.value)}
+          type="text"
+          placeholder="Please Typing...."
+        />
+        <button>Add</button>
+      </form>
     </div>
   );
 };

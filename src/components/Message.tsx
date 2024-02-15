@@ -1,5 +1,6 @@
 import React from "react";
 import { Todos } from "../type/type";
+import { MdOutlineDelete } from "react-icons/md";
 
 type Props = {
   todos: Todos[];
@@ -11,12 +12,12 @@ const Message: React.FC<Props> = ({ todos, deleteMessage }) => {
     <div>
       {todos.map((todo, i) => (
         <div key={i}>
-          {todo.message} ----{" "}
+          {todo.message} ----------------{" "}
           <span
             onClick={() => deleteMessage(todo.id)}
             style={{ cursor: "pointer" }}
           >
-            X
+            <MdOutlineDelete />
           </span>
         </div>
       ))}
